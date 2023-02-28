@@ -17,10 +17,8 @@ public class Report extends Base {
         setContentView(R.layout.activity_report);
 
         listView = findViewById(R.id.reportList);
-//        DonationAdapter adapter = new DonationAdapter(this, app.dbManager.getAll());
-        DonationAdapter adapter = new DonationAdapter(this,app.donations);
-        listView.setAdapter(adapter);
-
+        DonationAdapter adapter = new DonationAdapter(this, app.dbManager.getAll());
+//        DonationAdapter adapter = new DonationAdapter(this,app.donations);
         listView.setAdapter(adapter);
 
     }

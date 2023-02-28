@@ -9,10 +9,7 @@ public class DBDesigner extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "donations.db";
 	private static final int DATABASE_VERSION = 1;
-	private static final String DATABASE_CREATE_TABLE_DONATION = "create table donations "
-			+ "(id integer primary key autoincrement,"
-			+ "amount integer not null,"
-			+ "method text not null);";
+	private static final String DATABASE_CREATE_TABLE_DONATION = "create table donations (id integer primary key autoincrement,amount integer not null,method text not null,date text not null)";
 		
 	public DBDesigner(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -31,4 +28,5 @@ public class DBDesigner extends SQLiteOpenHelper {
 		db.execSQL("DROP TABLE IF EXISTS donations");
 		onCreate(db);
 	}
+
 }

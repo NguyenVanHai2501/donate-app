@@ -5,7 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
+import android.util.Log;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +39,24 @@ public class DBManager {
 		ContentValues values = new ContentValues();
 		values.put("amount", d.getAmount());
 		values.put("method", d.getMethod());
-
+		String date = "";
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			date = LocalDate.now() +  " " +  LocalTime.now();
+		}
+		values.put("date", date);
 		database.insert("donations", null, values);
+	}
+
+	private String getDate() {
+		Cursor cursor = database.rawQuery("SELECT datetime('now')", null);
+		cursor.moveToFirst();
+		String date = "";
+		while (!cursor.isAfterLast()) {
+			date += cursor.getString(0) + "\n";
+			cursor.moveToNext();
+		}
+		cursor.close();
+		return date;
 	}
 
 	public List<Donation> getAll() {
@@ -52,8 +73,7 @@ public class DBManager {
 	}
 
 	private Donation toDonation(Cursor cursor) {
-		Donation pojo = new Donation(cursor.getInt(0), cursor.getInt(1), cursor.getString(2));
-
+		Donation pojo = new Donation(cursor.getInt(0), cursor.getInt(1), cursor.getString(2), cursor.getString(3));
 		return pojo;
 	}
 
@@ -65,6 +85,7 @@ public class DBManager {
 	}
 
 	public void reset() {
-		database.delete("donations", null, null);
+
+		dbHelper.onUpgrade(database, database.getVersion(), database.getVersion() + 1);
 	}
 }

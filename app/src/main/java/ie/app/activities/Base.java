@@ -27,14 +27,13 @@ public class Base extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (DonationApp) this.getApplication();
-//        app.dbManager.open();
-//        app.dbManager.setTotalDonated(this);
+        app.dbManager.open();
+        app.dbManager.setTotalDonated(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        app.dbManager.close();
     }
     public void bluetooth(MenuItem item) {
         Toast.makeText(this, "Bluetooth selected", Toast.LENGTH_SHORT).show();
@@ -54,7 +53,7 @@ public class Base extends AppCompatActivity {
     public void reset(MenuItem item)
     {
         app.totalDonated = 0;
-//        app.dbManager.reset();
+        app.dbManager.reset();
         finish();
         overridePendingTransition(0, 0);
         startActivity(this.getIntent());

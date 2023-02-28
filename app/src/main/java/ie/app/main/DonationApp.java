@@ -13,14 +13,14 @@ public class DonationApp extends Application {
     public final int target = 10000;
     public int totalDonated = 0;
 
-    public List <Donation> donations = new ArrayList<Donation>();
-//    public DBManager dbManager;
+//    public List <Donation> donations = new ArrayList<Donation>();
+    public DBManager dbManager;
     @Override
     public void onCreate()
     {
         super.onCreate();
         Log.v("Donate", "Donation App Started");
-//        dbManager = new DBManager(this);
+        dbManager = new DBManager(this);
         Log.v("Donate", "Database Created");
     }
 
@@ -30,8 +30,8 @@ public class DonationApp extends Application {
         boolean targetAchieved = totalDonated >= target;
         if (!targetAchieved)
         {
-//            dbManager.add(donation);
-            donations.add(donation);
+            dbManager.add(donation);
+//            donations.add(donation);
             totalDonated += donation.getAmount();
         }
         else

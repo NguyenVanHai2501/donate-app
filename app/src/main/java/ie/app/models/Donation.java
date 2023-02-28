@@ -4,8 +4,16 @@ public class Donation {
     private int id;
     private int amount;
     private String method;
-    public Donation (int amount, String method)
+
+    private String date;
+    public Donation (int amount, String method, String date)
     {
+        this.amount = amount;
+        this.method = method;
+        this.date = date;
+    }
+
+    public Donation(int amount, String method) {
         this.amount = amount;
         this.method = method;
     }
@@ -13,12 +21,14 @@ public class Donation {
     public Donation() {
         this.amount = 0;
         this.method = "";
+        this.date = "DD/MM/YYYY";
     }
 
-    public Donation(int id, int amount, String method) {
+    public Donation(int id, int amount, String method, String date) {
         this.id = id;
         this.amount = amount;
         this.method = method;
+        this.date = date;
     }
 
     public int getAmount() {
@@ -45,8 +55,16 @@ public class Donation {
         this.id = id;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
-        return id + ", " + amount + ", " + method;
+        return id + ", " + amount + ", " + method + " " + date;
     }
 }

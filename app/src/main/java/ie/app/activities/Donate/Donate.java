@@ -24,6 +24,7 @@ import java.util.List;
 import ie.app.R;
 import ie.app.activities.Base;
 import ie.app.api.DonationApi;
+import ie.app.asyncTask.GetAllTask;
 import ie.app.services.FirstService;
 import ie.app.models.Donation;
 import ie.app.main.DonationApp;
@@ -73,7 +74,7 @@ public class Donate extends Base {
     public void onResume() {
         super.onResume();
         Log.v(TAG, "OnResume start");
-        new GetAllTask(this).execute("");
+//        new GetAllTask(this).execute("");
     }
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -123,43 +124,6 @@ public class Donate extends Base {
         return new Donation(amount, method);
     }
 
-    private class GetAllTask extends AsyncTask<String, Void, List<Donation>> {
-        protected ProgressDialog dialog;
-        protected Context context;
-        public GetAllTask(Context context)
-        {
-            this.context = context;
-        }
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Log.e("Donate","onPreExecute start " );
-            this.dialog = new ProgressDialog(context, 1);
-            this.dialog.setMessage("Retrieving Donations List");
-            this.dialog.show();
-        }
-        @Override
-        protected List<Donation> doInBackground(String... params) {
-            try {
-                Log.e("donate", "Donation App Getting All Donations");
-                return (List<Donation>) DonationApi.getAll((String) params[0]);
-            }
-            catch (Exception e) {
-                Log.e("donate", "ERROR : " + e);
-                e.printStackTrace();
-            }
-            return null;
-        }
-        @Override
-        protected void onPostExecute(List<Donation> result) {
-            super.onPostExecute(result);
-            //use result to calculate the totalDonated amount here
-            progressBar.setProgress(app.totalDonated);
-            totalTextView.setText("$" + app.totalDonated);
-            Log.e("Donate","onPostExecute start" );
-            if (dialog.isShowing())
-                dialog.dismiss();
-        }
-    }
+
 
 }
