@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fontSize24">24sp</dimen>
+    <dimen name="valueWidth46">46dp</dimen>
+    <dimen name="valueWidth32">32dp</dimen>
+    <dimen name="top_bottom">32dp</dimen>
+    <dimen name="left_right">16dp</dimen>
+    <dimen name="valueWidth48">48dp</dimen>
+    <dimen name="valueWidth24">24dp</dimen>
+    <dimen name="fontSize20">20sp</dimen>
+</resources>

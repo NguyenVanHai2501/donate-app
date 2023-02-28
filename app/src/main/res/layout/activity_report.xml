@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Report.Report" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/report"
+        android:id="@+id/reportTitle"
+        android:layout_marginStart="@dimen/left_right"
+        android:layout_marginTop="@dimen/top_bottom"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="@dimen/fontSize24"/>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reportList"
+        android:layout_below="@+id/reportTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/left_right"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email_fab"
+        android:src="@drawable/email_icon"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/top_bottom"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/left_right"
+        android:contentDescription="@string/fabText"
+        android:onClick="fabClick"/>
+</RelativeLayout>

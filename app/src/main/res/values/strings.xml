@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">DonateApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="donateTitle">Welcome</string>
+    <string name="donateSubtitle">Please Give Generously</string>
+    <string name="donateButton">Donate</string>
+    <string name="paypal">PayPal</string>
+    <string name="direct">Derect</string>
+    <string name="setting">Settings</string>
+    <string name="report">Report</string>
+    <string name="donate">Donate</string>
+    <string name="totalText">Total so Far</string>
+    <string name="fabText">Sent email</string>
+    <string name="amountText">Amount</string>
+    <string name="defaultValue">$0</string>
+    <string name="defaultMethod">N/A</string>
+    <string name="bluetooth">bluetooth</string>
+    <string name="reset">Reset</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.Donate.Donate">
+    <item android:id="@+id/bluetooth"
+        android:icon="@drawable/bluetooth_icon"
+        android:title="@string/bluetooth"
+        app:showAsAction="ifRoom"
+        android:onClick="bluetooth"/>
+    <item android:id="@+id/setting"
+        android:title="@string/setting"
+        app:showAsAction="never"
+        android:onClick="settings"/>
+    <item android:id="@+id/report"
+        android:title="@string/report"
+        app:showAsAction="never"
+        android:onClick="report"/>
+    <item android:id="@+id/reset"
+        android:title="@string/reset"
+        app:showAsAction="never"
+        android:onClick="reset"/>
+</menu>
